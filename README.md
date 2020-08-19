@@ -13,3 +13,9 @@
   * [X] Login and Register Functions
   * [X] Get user Logted Details and Logout Functions
   * [X] Test all Functions with Postman
+
+### 2 - Access Control List (Roles)
+
+  * [X] Install and setting up spatie laravel permissions package
+  * [X] create a admin , manager and cashier users
+  * [X] assign every users with role
