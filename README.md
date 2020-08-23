@@ -19,3 +19,5 @@
   * [X] Install and setting up spatie laravel permissions package
   * [X] create a admin , manager and cashier users
   * [X] assign every users with role
+  * [X] Admin Role manage Users (Create,Read,Delete)
+  * [X] Admin Role manage Roles and Permissions

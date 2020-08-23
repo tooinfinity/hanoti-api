@@ -15,19 +15,6 @@ class AuthController extends Controller
     $this->middleware('jwt',['except' => ['login']]);
   }
 
-  public function register(Request $request)
-  {
-    $user = User::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'password' => bcrypt($request->password),
-      ]);
-      
-      $token = auth()->login($user);
-
-      return $this->respondWithToken($token);
-  }
-
   public function login()
   {
       $credentials = request(['email', 'password']);

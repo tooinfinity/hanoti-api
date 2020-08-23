@@ -2,8 +2,9 @@
 
 namespace App\Exceptions;
 
-use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -51,16 +52,18 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        if($request->expectsJson()) 
-  {
+        if ($request->expectsJson()) {
 
-    if($exception instanceof UnauthorizedHttpException) {
+            if ($exception instanceof UnauthorizedHttpException) {
 
-      return response()->json('Unauthorized', 403);
+                return response()->json('Unauthorized', 403);
 
-    }
+            }
+            if ($exception instanceof ModelNotFoundException) {
+                return Route::respondWithRoute('api.fallback.404');
+            }
 
-  }
+        }
         return parent::render($request, $exception);
     }
 }
