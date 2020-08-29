@@ -13,7 +13,7 @@
   * [X] Login and Register Functions
   * [X] Get user Logted Details and Logout Functions
   * [X] Test all Functions with Postman
-  * [] ....
+  * [ ] ....
 
 ### 2 - Access Control List (Roles)
 
@@ -22,8 +22,8 @@
   * [X] assign every users with role
   * [X] Admin Role manage Users (Create,Read,Delete)
   * [X] Admin Role manage Roles and Permissions
-  * [] Create factory and seed for Users
-  * [] ....
+  * [ ] Create factory and seed for Users
+  * [ ] ....
 
 ### 3 - Products Management Module
   * [X] CRUD Products
@@ -35,5 +35,42 @@
   * [X] Create factory and seed for Categoties
   * [X] Create factory and seed for Units
   * [X] test all route with Postman
-  * [] ....
+  * [ ] ....
+
+### 4 - Customer Management Module
+  * [ ] CRUD Customers
+  * [ ] Relation : Customer hasMany Sales
+  * [ ] Create factory and seed for Customer
+  * [ ] test CRUD Customers route with Postman
+
+### 5 - Provider Management Module
+  * [ ] CRUD Providers
+  * [ ] Relation : Provider hasMany Purchases
+  * [ ] Create factory and seed for Provider
+  * [ ] test CRUD Providers route with Postman
+
+### 6 - Expense and Salary Management Module
+  * [ ] CRUD Expenses
+  * [ ] Create factory and seed for Expense
+  * [ ] test CRUD Expenses route with Postman
+  * [ ] CRUD Salary
+  * [ ] Create factory and seed for Salary
+  * [ ] test CRUD Salary route with Postman
+
+### 7 - Purchase Management Module
+  * [ ] CRUD Purchases
+  * [ ] Relation : Purchase belongTo Provider
+  * [ ] Create factory and seed for Purchase
+  * [ ] test CRUD Purchases route with Postman
+
+### 8 - Sale Management Module
+  * [ ] CRUD Sales
+  * [ ] Relation : Sale belongTo Customer
+  * [ ] Create factory and seed for Sale
+  * [ ] test CRUD Sales route with Postman
+
+### 10 - Generate Reports for all Modules
+### 11 - Generate Activity Log
+### 12 - backup and restore database
+### 12 - Desktop app using elecron.js
 
