@@ -21,6 +21,10 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('permissions', 'API\Auth\PermissionController@permission_store');
     Route::post('rolepermissions/{role}', 'API\Auth\PermissionController@role_has_permissions');
     Route::post('assignuserrole/{role}', 'API\Auth\PermissionController@assign_user_to_role');
+
+    Route::apiresource('categories', 'API\Products\CategoryController');
+    Route::apiresource('products', 'API\Products\ProductController');
+    Route::apiresource('units', 'API\Products\UnitController');
 });
 
 // used Route::fallback() to help customize 404.

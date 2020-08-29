@@ -16,19 +16,19 @@ class UserSeeder extends Seeder
         $admin = User::create([
             'name' => 'admin',
             'email' => 'admin@app.com',
-            'password' => Hash::make('admin')
+            'password' => Hash::make('admin'),
         ]);
 
         $manager = User::create([
             'name' => 'manager',
             'email' => 'manager@app.com',
-            'password' => Hash::make('manager')
+            'password' => Hash::make('manager'),
         ]);
 
         $cashier = User::create([
             'name' => 'cashier',
             'email' => 'cashier@app.com',
-            'password' => Hash::make('cashier')
+            'password' => Hash::make('cashier'),
         ]);
 
         $roleAdmin = Role::create(['name' => 'admin']);
@@ -36,7 +36,10 @@ class UserSeeder extends Seeder
         $roleCashier = Role::create(['name' => 'cashier']);
 
         $admin->assignRole($roleAdmin);
+        $admin->assignRole($roleManager);
+        $admin->assignRole($roleCashier);
         $manager->assignRole($roleManager);
+        $manager->assignRole($roleCashier);
         $cashier->assignRole($roleCashier);
     }
 }
