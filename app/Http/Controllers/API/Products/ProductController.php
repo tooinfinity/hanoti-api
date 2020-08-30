@@ -52,6 +52,8 @@ class ProductController extends Controller
         $product->purchase_price = $request->purchase_price;
         $product->sale_price = $request->sale_price;
         $product->stock = $request->stock;
+        $product->description = $request->description;
+        $product->image = $request->image;
 
         $product->save();
 
@@ -98,6 +100,8 @@ class ProductController extends Controller
         $product->purchase_price = $request->purchase_price;
         $product->sale_price = $request->sale_price;
         $product->stock = $request->stock;
+        $product->description = $request->description;
+        $product->image = $request->image;
 
         $product->update();
 

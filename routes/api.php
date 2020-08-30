@@ -25,6 +25,8 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::apiresource('categories', 'API\Products\CategoryController');
     Route::apiresource('products', 'API\Products\ProductController');
     Route::apiresource('units', 'API\Products\UnitController');
+
+    Route::apiresource('customers', 'API\HumanResources\CustomerController');
 });
 
 // used Route::fallback() to help customize 404.

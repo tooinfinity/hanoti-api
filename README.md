@@ -38,10 +38,10 @@
   * [ ] ....
 
 ### 4 - Customer Management Module
-  * [ ] CRUD Customers
-  * [ ] Relation : Customer hasMany Sales
-  * [ ] Create factory and seed for Customer
-  * [ ] test CRUD Customers route with Postman
+  * [X] CRUD Customers
+  * [X] Relation : Customer hasMany Sales
+  * [X] Create factory and seed for Customer
+  * [X] test CRUD Customers route with Postman
 
 ### 5 - Provider Management Module
   * [ ] CRUD Providers
