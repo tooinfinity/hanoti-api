@@ -44,10 +44,10 @@
   * [X] test CRUD Customers route with Postman
 
 ### 5 - Provider Management Module
-  * [ ] CRUD Providers
-  * [ ] Relation : Provider hasMany Purchases
-  * [ ] Create factory and seed for Provider
-  * [ ] test CRUD Providers route with Postman
+  * [X] CRUD Providers
+  * [X] Relation : Provider hasMany Purchases
+  * [X] Create factory and seed for Provider
+  * [X] test CRUD Providers route with Postman
 
 ### 6 - Expense and Salary Management Module
   * [ ] CRUD Expenses
