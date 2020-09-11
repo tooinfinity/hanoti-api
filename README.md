@@ -29,8 +29,8 @@
   * [X] CRUD Products
   * [X] CRUD Categoty Products
   * [X] CRUD Unit Products
-  * [X] Relation : Categoty hasMany Products => Product belongToOne Categoty
-  * [X] Relation : Unit belongToOne Product => Product hasOne Unit 
+  * [X] Relation : Categoty hasMany Products => Product belongTo Categoty
+  * [X] Relation : Unit hasOne Product => Product belongToOne Unit 
   * [X] Create factory and seed for Products
   * [X] Create factory and seed for Categoties
   * [X] Create factory and seed for Units
@@ -49,13 +49,14 @@
   * [X] Create factory and seed for Provider
   * [X] test CRUD Providers route with Postman
 
-### 6 - Expense and Salary Management Module
-  * [ ] CRUD Expenses
-  * [ ] Create factory and seed for Expense
-  * [ ] test CRUD Expenses route with Postman
-  * [ ] CRUD Salary
-  * [ ] Create factory and seed for Salary
-  * [ ] test CRUD Salary route with Postman
+### 6 - Expense and Category Expense Management Module
+  * [X] CRUD Expenses
+  * [X] CRUD Category Expense
+  * [X] Relation : Categoty hasMany Expenses => Expense belongTo Categoty
+  * [X] Create factory and seed for Expense
+  * [X] Create factory and seed for Categoty Expense
+  * [X] test CRUD Expenses route with Postman
+  * [X] test CRUD Category Expenses route with Postman
 
 ### 7 - Purchase Management Module
   * [ ] CRUD Purchases
@@ -68,6 +69,8 @@
   * [ ] Relation : Sale belongTo Customer
   * [ ] Create factory and seed for Sale
   * [ ] test CRUD Sales route with Postman
+
+### 9 - Transaction Management Module
 
 ### 10 - Generate Reports for all Modules
 ### 11 - Generate Activity Log
