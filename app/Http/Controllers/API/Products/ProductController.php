@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API\Products;
 
+use app\Helpers\Helpers;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
@@ -41,19 +42,25 @@ class ProductController extends Controller
             'unit_id' => 'required',
             'name' => 'required|unique:products,name',
             'purchase_price' => 'required',
-            'sale_price' => 'required',
-            'stock' => 'required',
+            'sell_price' => 'required',
+            'quantity' => 'required',
         ]);
 
         $product = new Product;
         $product->category_id = $request->category_id;
         $product->unit_id = $request->unit_id;
         $product->name = $request->name;
-        $product->purchase_price = $request->purchase_price;
-        $product->sale_price = $request->sale_price;
-        $product->stock = $request->stock;
+        $product->sku = Helpers::getSKUProduct($request->name, $request->id);
+        $product->barcode = Helpers::getBarcodeProduct($request->name);
         $product->description = $request->description;
+        //TODO: store image in storage path
         $product->image = $request->image;
+        $product->quantity = $request->quantity;
+        $product->quantity_alert = $request->quantity_alert;
+        $product->purchase_price = $request->purchase_price;
+        $product->cost_price = Helpers::calculateCostPrice(0, 0, $request->purchase_price, $request->quantity);
+        $product->sell_price = $request->sell_price;
+        $product->status = $request->status;
 
         $product->save();
 
@@ -90,18 +97,24 @@ class ProductController extends Controller
                 Rule::unique('products')->ignore($product->id),
             ],
             'purchase_price' => 'required',
-            'sale_price' => 'required',
-            'stock' => 'required',
+            'sell_price' => 'required',
+            'quantity' => 'required',
         ]);
 
         $product->category_id = $request->category_id;
         $product->unit_id = $request->unit_id;
         $product->name = $request->name;
-        $product->purchase_price = $request->purchase_price;
-        $product->sale_price = $request->sale_price;
-        $product->stock = $request->stock;
+        $product->sku = Helpers::getSKUProduct($request->name, $request->id);
+        $product->barcode = Helpers::getBarcodeProduct($request->name);
         $product->description = $request->description;
+        //TODO: update image in storage path
         $product->image = $request->image;
+        $product->quantity = $request->quantity;
+        $product->quantity_alert = $request->quantity_alert;
+        $product->cost_price = Helpers::calculateCostPrice($product->purchase_price, $product->quantity, $request->purchase_price, $request->quantity);
+        $product->purchase_price = $request->purchase_price;
+        $product->sell_price = $request->sell_price;
+        $product->status = $request->status;
 
         $product->update();
 
@@ -117,6 +130,7 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
+        //TODO: delete image from storage path
 
         $product->delete();
         return response()->json(['message' => 'Product deleted successfuly'], 200);

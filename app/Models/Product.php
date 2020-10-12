@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillables = [
-        'name', 'description', 'image', 'stock',
-        'sale_price', 'purchase_price', 'category_id',
-        'unit_id',
+        'name', 'description', 'image', 'quantity', 'quantity_alert',
+        'sell_price', 'purchase_price', 'category_id',
+        'unit_id', 'status'
     ];
 
     public function Category()

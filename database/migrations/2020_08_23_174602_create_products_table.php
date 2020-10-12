@@ -19,11 +19,16 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('unit_id');
 
             $table->string('name');
+            $table->string('sku');
+            $table->string('barcode');
             $table->text('description')->nullable();
             $table->string('image')->nullable();
-            $table->integer('stock');
-            $table->double('sale_price');
+            $table->integer('quantity');
+            $table->integer('quantity_alert')->nullable()->default(1);
             $table->double('purchase_price');
+            $table->double('cost_price')->nullable();
+            $table->double('sell_price');
+            $table->boolean('status')->default(1);
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade');
