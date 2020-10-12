@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\API\HumanResources;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CustomerResource;
-use App\Models\Customer;
+use App\Http\Resources\ClientResource;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-class CustomerController extends Controller
+class ClientController extends Controller
 {
     public function __construct()
     {
@@ -28,7 +28,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return CustomerResource::collection(Customer::paginate(5));
+        return ClientResource::collection(Client::paginate(5));
     }
 
     /**
@@ -40,20 +40,22 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'client_type' => 'required',
             'name' => 'required|unique:customers,name',
             'phone' => 'required',
             'address' => 'required',
         ]);
 
-        $customer = new Customer;
-        $customer->name = $request->name;
-        $customer->phone = $request->phone;
-        $customer->address = $request->address;
-        $customer->description = $request->description;
+        $client = new Client;
+        $client->client_type = $request->client_type;
+        $client->name = $request->name;
+        $client->phone = $request->phone;
+        $client->address = $request->address;
+        $client->description = $request->description;
 
-        $customer->save();
+        $client->save();
 
-        return new CustomerResource($customer);
+        return new ClientResource($client);
     }
 
     /**
@@ -64,9 +66,9 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        $customer = Customer::findOrFail($id);
+        $client = Client::findOrFail($id);
 
-        return new CustomerResource($customer);
+        return new ClientResource($client);
     }
 
     /**
@@ -78,25 +80,27 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $customer = Customer::findOrFail($id);
+        $client = Client::findOrFail($id);
 
         $this->validate($request, [
+            'client_type' => 'required',
             'name' => [
                 'required',
-                Rule::unique('customers')->ignore($customer->id),
+                Rule::unique('clients')->ignore($client->id),
             ],
             'phone' => 'required',
             'address' => 'required',
         ]);
 
-        $customer->name = $request->name;
-        $customer->phone = $request->phone;
-        $customer->address = $request->address;
-        $customer->description = $request->description;
+        $client->client_type = $request->client_type;
+        $client->name = $request->name;
+        $client->phone = $request->phone;
+        $client->address = $request->address;
+        $client->description = $request->description;
 
-        $customer->update();
+        $client->update();
 
-        return new CustomerResource($customer);
+        return new ClientResource($client);
     }
 
     /**
@@ -107,8 +111,8 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        $customer = Customer::findOrFail($id);
-        $customer->delete();
-        return response()->json(['message' => 'Customer deleted successfuly'], 200);
+        $client = Client::findOrFail($id);
+        $client->delete();
+        return response()->json(['message' => 'client deleted successfuly'], 200);
     }
 }

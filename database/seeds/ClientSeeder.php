@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Provider;
+use App\Models\Client;
 use Illuminate\Database\Seeder;
 
-class ProviderSeeder extends Seeder
+class ClientSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class ProviderSeeder extends Seeder
      */
     public function run()
     {
-        factory(Provider::class, 20)->create();
+        factory(Client::class, 20)->create();
     }
 }
